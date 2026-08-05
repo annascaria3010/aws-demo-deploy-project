@@ -1,0 +1,28 @@
+<section style="max-width: 480px; margin: 2rem auto;">
+  <h1>Sign in</h1>
+  <p>Enter your credentials to access the home page.</p>
+
+  <%= form_with url: login_path, local: true do |form| %>
+    <div style="margin-bottom: 1rem;">
+      <%= form.label :email, "Email", style: "display:block; margin-bottom:0.25rem;" %>
+      <%= form.email_field :email, value: params[:email], required: true, style: "width:100%; padding:0.5rem;" %>
+    </div>
+
+    <div style="margin-bottom: 1rem;">
+      <%= form.label :password, "Password", style: "display:block; margin-bottom:0.25rem;" %>
+      <%= form.password_field :password, required: true, style: "width:100%; padding:0.5rem;" %>
+    </div>
+
+    <div>
+      <%= form.submit "Sign in", style: "padding: 0.75rem 1.5rem; font-size: 1rem;" %>
+    </div>
+  <% end %>
+
+  <div style="margin-top: 1rem; color: #555;">
+    <p>Demo credentials:</p>
+    <ul>
+      <li><strong>Email:</strong> user@example.com</li>
+      <li><strong>Password:</strong> password123</li>
+    </ul>
+  </div>
+</section>
