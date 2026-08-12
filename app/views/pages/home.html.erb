@@ -1,5 +1,38 @@
-<section style="max-width: 640px; margin: 0 auto;">
+<section style="max-width: 640px; margin: 0 auto;" data-controller="home">
   <h1>Welcome home!</h1>
-  <p>You are signed in as <strong><%= current_user %></strong>.</p>
-  <p>This is your home page. Use the navigation above to sign out.</p>
+  <p data-home-target="status">Loading your account...</p>
+
+  <div style="margin-top: 2rem;">
+    <h2>Add a name</h2>
+    <form data-action="submit->home#addName" style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+      <input
+        type="text"
+        data-home-target="nameInput"
+        placeholder="Enter a name"
+        required
+        style="flex:1; min-width:200px; padding:0.5rem;"
+      />
+      <button type="submit" style="padding:0.6rem 1rem;">Add</button>
+    </form>
+    <p data-home-target="message" style="margin-top:0.75rem; color:#c00;"></p>
+  </div>
+
+  <div style="margin-top: 2rem;">
+    <h2>Added names</h2>
+    <table style="width:100%; border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th style="text-align:left; border-bottom:1px solid #ddd; padding:0.75rem;">No.</th>
+          <th style="text-align:left; border-bottom:1px solid #ddd; padding:0.75rem;">Name</th>
+          <th style="text-align:left; border-bottom:1px solid #ddd; padding:0.75rem;">Added</th>
+          <th style="text-align:left; border-bottom:1px solid #ddd; padding:0.75rem;">Actions</th>
+        </tr>
+      </thead>
+      <tbody data-home-target="namesList">
+        <tr>
+          <td colspan="4" style="padding:0.75rem; color:#666;">No names added yet.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>
